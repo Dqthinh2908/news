@@ -92,8 +92,6 @@ class NewsController extends Controller
         $id = session('id');
         $dataNews = posts::find($id);
 
-
-
         if(!empty($dataNews))
         {
             $title = $request->titleNews;

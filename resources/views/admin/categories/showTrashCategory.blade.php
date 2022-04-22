@@ -4,8 +4,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <a class="btn btn-primary" href="{{route('admin.showAddCategory')}}"> Thêm chuyên mục mới</a>
-                <a href="{{route('admin.showTrashCategory')}}" class="btn btn-primary">Thùng rác</a>
             </div>
         </div>
         <div class="row mt-5">
@@ -26,21 +24,21 @@
                     <tr>
                         <th>#</th>
                         <th>Tên chuyên mục</th>
-                        <th>Ngày tạo</th>
+                        <th>Ngày xóa</th>
                         <th colspan="2" width="5%" class="text-center">Action</th>
                     </tr>
                     </thead>
-                    @foreach($data as $key=>$value)
+                    @foreach($dataTrashed as $key=>$value)
                         <tbody>
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$value->name}}</td>
-                            <td>{{$value->deleted_at}}</td>
+                            <td>{{$value->created_at}}</td>
                             <td>
-                                <a class="btn btn-warning" href="{{ route('admin.showEditCategory',['id'=>$value->id]) }}">Edit</a>
+                                <a class="btn btn-success" href="{{ route('admin.handleCategoryRestore',['id'=>$value->id]) }}">Khôi phục</a>
                             </td>
                             <td>
-                                <a class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="{{ route('admin.handleDeleteCategory',['id'=>$value->id]) }}">Delete</a>
+                                <a class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="{{ route('admin.handleCategoryForce',['id'=>$value->id]) }}">Xóa vĩnh viễn</a>
                             </td>
 
                         </tr>

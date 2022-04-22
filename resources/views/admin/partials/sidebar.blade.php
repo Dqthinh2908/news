@@ -35,14 +35,14 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories"
            aria-expanded="true" aria-controls="collapseCategories">
            <i class="fa-solid fa-bars"></i>
-            <span>Thể loại tin tức</span>
+            <span>Chuyên mục tin tức</span>
         </a>
         <div id="collapseCategories" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Thể loại</h6>
-                <a class="collapse-item" href="{{route('admin.showCategories')}}">Các thể loại</a>
-                <a class="collapse-item" href="{{route('admin.showAddCategory')}}">Thêm mới thể loại</a>
-                <a class="collapse-item" href="{{route('admin.showCategories')}}">Thể loại đã xóa</a>
+                <a class="collapse-item" href="{{route('admin.showCategories')}}">Các chuyên mục</a>
+                <a class="collapse-item" href="{{route('admin.showAddCategory')}}">Thêm mới chuyên mục</a>
+                <a class="collapse-item" href="{{route('admin.showCategories')}}">Chuyên mục đã xóa</a>
 
             </div>
         </div>

@@ -27,13 +27,6 @@ class AuthServiceProvider extends ServiceProvider
         $permissionGateAndPolicy = new PermissionGateAndPolicyAccess();
         $permissionGateAndPolicy->setGateAndPolicyAccess();
     }
-    //Categories
-    public function defineGateCategory()
-    {
-        Gate::define('category_list','App\Policies\CategoryPolicy@view');
-        Gate::define('category_add', 'App\Policies\CategoryPolicy@create');
-        Gate::define('category_edit', 'App\Policies\CategoryPolicy@update');
-        Gate::define('category_delete','App\Policies\CategoryPolicy@delete');
-    }
+
 
 }

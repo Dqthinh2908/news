@@ -86,4 +86,33 @@ class UserController extends Controller
             Log::error('Message: ' . $exception->getMessage() . '--- Line:' .$exception->getLine());
         }  
     }
+    public function handleDeleteUser($id)
+    {
+        $deleteUser = User::destroy($id);
+        if($deleteUser)
+        {
+            return redirect()->route('admin.showUser')->with('msg','Người dùng đã bị vô hiệu hóa, chuyển vào thùng rác')->with('type','success');
+        }else
+        {
+            return back()->with('msg','Xóa dữ liệu thất bại')->with('type','danger');
+        }
+    }
+    public function showTrashUser()
+    {
+        $dataTrashed = User::onlyTrashed()->with('roles')->get();
+        // dd($dataTrashed);
+        return view('admin/user/showTrashUser',compact('dataTrashed'));
+    }
+    public function handleUserRestore($id)
+    {
+        $data = User::withTrashed()->find($id);
+        $data->restore();
+        return redirect()->route('admin.showUser')->with('msg','Khôi phục người dùng thành công')->with('type','success');
+    }
+    public function handleUserForce($id)
+    {
+        $dataForce = User::withTrashed()->find($id);
+        $dataForce->forceDelete();
+        return redirect()->route('admin.showUser')->with('msg','Người dùng đã được xóa vĩnh viễn')->with('type','success');
+    }
 }

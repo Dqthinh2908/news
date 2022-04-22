@@ -37,6 +37,9 @@ route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(fun
     route::get('showEditUser/{id}',[UserController::class,'showEditUser'])->name('showEditUser')->middleware('can:user_edit');
     route::post('handleUpdateUser/{id}',[UserController::class,'handleUpdateUser'])->name('handleUpdateUser');
     route::get('handleDeleteUser/{id}',[UserController::class,'handleDeleteUser'])->name('handleDeleteUser')->middleware('can:user_delete');
+    route::get('showTrashUser',[UserController::class,'showTrashUser'])->name('showTrashUser');
+    route::get('handleUserRestore/{id}',[UserController::class,'handleUserRestore'])->name('handleUserRestore');
+    route::get('handleUserForce/{id}',[UserController::class,'handleUserForce'])->name('handleUserForce');
 });
 //Customer
 route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(function(){
@@ -46,6 +49,13 @@ route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(fun
 route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(function(){
     route::get('showCategories',[CategoryController::class,'index'])->name('showCategories')->middleware('can:category_list');
     route::get('showAddCategories',[CategoryController::class,'showAddCategory'])->name('showAddCategory')->middleware('can:category_add');
+    route::post('handleAddCategory',[CategoryController::class,'handleAddCategory'])->name('handleAddCategory');
+    route::get('showEditCategory/{id}',[CategoryController::class,'showEditCategory'])->name('showEditCategory');
+    route::post('handleUpdateCategory/{id}',[CategoryController::class,'handleUpdateCategory'])->name('handleUpdateCategory');
+    route::get('handleDeleteCategory/{id}',[CategoryController::class,'handleDeleteCategory'])->name('handleDeleteCategory');
+    route::get('showTrashCategory',[CategoryController::class,'showTrashCategory'])->name('showTrashCategory');
+    route::get('handleCategoryRestore/{id}',[CategoryController::class,'handleCategoryRestore'])->name('handleCategoryRestore');
+    route::get('handleCategoryForce/{id}',[CategoryController::class,'handleCategoryForce'])->name('handleCategoryForce');
 });
 //Comment
 route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(function(){

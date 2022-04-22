@@ -51,7 +51,7 @@
                             <td><img width="45%" src="{{asset('admin/images/' .$value->images)}}" alt=""></td>
                             <td>{{$value->categories->name}}</td>
 {{--                            <td>{{$value->description}}</td>--}}
-                            <td>{{$value->user->name}}</td>
+                            <td>{{$value->user->fullname}}</td>
                             <td>{{$value->created_at}}</td>
                             <td>
                                 <a class="btn btn-warning" href="{{route('admin.showUpdateNews',['id'=>$value->id])}}">Edit</a>
