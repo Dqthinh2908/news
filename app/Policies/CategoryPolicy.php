@@ -74,6 +74,10 @@ class CategoryPolicy
      * @param  \App\Models\categories  $categories
      * @return \Illuminate\Auth\Access\Response|bool
      */
+    public function trash(User $user)
+    {
+        return $user->checkPermissionAccess('trash_categories');
+    }
     public function restore(User $user, categories $categories)
     {
         //

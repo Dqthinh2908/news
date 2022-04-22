@@ -21,7 +21,9 @@
         <div id="collapsePosts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Danh mục tin tức:</h6>
+                @can('post_list')
                 <a class="collapse-item" href="{{route('admin.dashboard')}}">Tin tức</a>
+                @endcan
                 @can('post_add')
                 <a class="collapse-item" href="{{route('admin.showAddNews')}}">Thêm tin tức</a>
                 @endcan
@@ -40,9 +42,15 @@
         <div id="collapseCategories" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Thể loại</h6>
+                @can('category_list')
                 <a class="collapse-item" href="{{route('admin.showCategories')}}">Các chuyên mục</a>
+                @endcan
+                @can('category_add')
                 <a class="collapse-item" href="{{route('admin.showAddCategory')}}">Thêm mới chuyên mục</a>
-                <a class="collapse-item" href="{{route('admin.showCategories')}}">Chuyên mục đã xóa</a>
+                @endcan
+                @can('category_trash')
+                <a class="collapse-item" href="{{route('admin.showTrashCategory')}}">Chuyên mục đã xóa</a>
+                @endcan
 
             </div>
         </div>
@@ -62,12 +70,14 @@
                 @can('user_add')
                 <a class="collapse-item" href="{{route('admin.showAddUser')}}">Thêm tài khoản</a>
                 @endcan
+                @can('user_trash')
                 <a class="collapse-item" href="forgot-password.html">Tài khoản đã xóa</a>
+                @endcan
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Tài khoản người dùng:</h6>
                 <a class="collapse-item" href="{{ route('admin.showCustomer') }}">Tài khoản</a>
-                <a class="collapse-item" href="register.html">Thêm tài khoản</a>
-                <a class="collapse-item" href="forgot-password.html">Tài khoản đã xóa</a>
+                <a class="collapse-item" href="{{ route('admin.showAddUser') }}">Thêm tài khoản</a>
+                <a class="collapse-item" href="{{ route('admin.showTrashUser') }}">Tài khoản đã xóa</a>
             </div>
         </div>
     </li>
@@ -100,8 +110,11 @@
                 @can('role_add')
                 <a class="collapse-item" href="{{route('admin.showAddRoles')}}">Thêm vai trò</a>
                 @endcan
+
                 <a class="collapse-item" href="{{route('admin.showPermissionRole')}}">Thêm phân quyền vai trò</a>
+                @can('role_trash')
                 <a class="collapse-item" href="{{route('admin.showCommentTrash')}}">Các vai trò đã xóa</a>
+                @endcan
             </div>
         </div>
     </li>

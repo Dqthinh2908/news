@@ -25,7 +25,7 @@
                     <tr>
                         <th>#</th>
                         <th colspan="2" width="5%" class="text-center">Action</th>
-                        <td>Họ và tên</td>
+                        <th>Họ và tên</th>
                         <th>Tên tài khoản</th>
                         <th>Email</th>
                         <th colspan="3" class="text-center">Chức vụ</th>
@@ -49,8 +49,6 @@
                                 @foreach($value->roles as $item)
                                 <td>{{$item->name}}</td>
                                 @endforeach
-                                
-                        
                             </tr>
                         @endforeach
                     </tbody>

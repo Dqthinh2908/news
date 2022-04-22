@@ -27,6 +27,7 @@ class PermissionGateAndPolicyAccess{
         Gate::define('category_add', 'App\Policies\CategoryPolicy@create');
         Gate::define('category_edit', 'App\Policies\CategoryPolicy@update');
         Gate::define('category_delete','App\Policies\CategoryPolicy@delete');
+        Gate::define('category_trash','App\Policies\CategoryPolicy@trash');
     }
     public function defineGateUser()
     {

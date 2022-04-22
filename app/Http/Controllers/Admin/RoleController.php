@@ -66,6 +66,23 @@ class RoleController extends Controller
             return back()->with('msg','Xóa dữ liệu thất bại')->with('type','danger');
         }
     }
+    public function showTrashRole()
+    {
+        $dataTrashed = roles::onlyTrashed()->get();
+        return view('admin/roles/showRoleTrash',compact('dataTrashed'));
+    }
+    public function handleRoleRestore($id)
+    {
+        $data= roles::withTrashed()->find($id);
+        $data->restore();
+        return redirect()->route('admin.showRoles')->with('msg','Khôi phục dữ liệu thành công')->with('type','success');
+    }
+    public function handleRoleForce($id)
+    {
+        $dataForce = roles::withTrashed()->find($id);
+        $dataForce->forceDelete();
+        return redirect()->route('admin.showRoles')->with('msg','Dữ liệu đã được xóa vĩnh viễn')->with('type','success');
+    }
 
 
 }

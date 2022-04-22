@@ -67,6 +67,10 @@ class RolePolicy
     {
         return $user->checkPermissionAccess('delete_role');
     }
+    public function trash(User $user)
+    {
+        return $user->checkPermissionAccess('trash_role');
+    }
 
     /**
      * Determine whether the user can restore the model.

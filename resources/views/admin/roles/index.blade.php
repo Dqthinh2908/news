@@ -8,7 +8,7 @@
                 @can('role_add')
                 <a class="btn btn-primary" href="{{route('admin.showAddRoles')}}"> Thêm vai trò mới</a>
                 @endcan
-                <a href="" class="btn btn-primary">Thùng rác</a>
+                <a href="{{ route('admin.showTrashRole') }}" class="btn btn-primary">Thùng rác</a>
             </div>
         </div>
         <div class="row mt-5">

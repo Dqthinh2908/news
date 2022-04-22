@@ -1,19 +1,15 @@
 @extends('admin.layout-admin')
-@section('title','Categories')
+@section('title','Roles')
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                @can('category_add')
-                <a class="btn btn-primary" href="{{route('admin.showAddCategory')}}"> Thêm chuyên mục mới</a>
-                @endcan
-                @can('category_trash')
-                <a href="{{route('admin.showTrashCategory')}}" class="btn btn-primary">Thùng rác</a>
-                @endcan
+                <p> This is Trash Roles page !</p>
+                <a class="btn btn-primary" href="{{route('admin.showRoles')}}"> Quay lại</a>
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <?php if(!empty($messageSuccess)):?>
                 <h6 class="alert alert-success" role="alert"><?= $messageSuccess ?></h6>
                 <?php endif; ?>
@@ -29,34 +25,32 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Tên chuyên mục</th>
-                        <th>Ngày tạo</th>
+                        <th>Tên vai trò</th>
+                        <th>Mô tả vai trò</th>
                         <th colspan="2" width="5%" class="text-center">Action</th>
                     </tr>
                     </thead>
-                    @foreach($data as $key=>$value)
                         <tbody>
+                        @foreach($dataTrashed as $key => $value)
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$value->name}}</td>
-                            <td>{{$value->deleted_at}}</td>
+                            <td>{{$value->description}}</td>
                             <td>
-                                <a class="btn btn-warning" href="{{ route('admin.showEditCategory',['id'=>$value->id]) }}">Edit</a>
+                                <a class="btn btn-success" href="{{ route('admin.handleRoleRestore',['id'=>$value->id])}} }}">Phục hồi</a>
                             </td>
                             <td>
-                                <a class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="{{ route('admin.handleDeleteCategory',['id'=>$value->id]) }}">Delete</a>
+                                @can('role_delete')
+                                <a class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="{{route('admin.handleRoleForce',['id'=>$value->id])}}">Xóa vĩnh viễn</a>
+                                @endcan
                             </td>
-
                         </tr>
+                            @endforeach
                         </tbody>
-                    @endforeach
-
                 </table>
-                <div>
-
-                </div>
             </div>
+
         </div>
     </div>
-@endsection
 
+@endsection

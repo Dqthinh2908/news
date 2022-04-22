@@ -50,10 +50,10 @@ route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(fun
     route::get('showCategories',[CategoryController::class,'index'])->name('showCategories')->middleware('can:category_list');
     route::get('showAddCategories',[CategoryController::class,'showAddCategory'])->name('showAddCategory')->middleware('can:category_add');
     route::post('handleAddCategory',[CategoryController::class,'handleAddCategory'])->name('handleAddCategory');
-    route::get('showEditCategory/{id}',[CategoryController::class,'showEditCategory'])->name('showEditCategory');
+    route::get('showEditCategory/{id}',[CategoryController::class,'showEditCategory'])->name('showEditCategory')->middleware('can:category_edit');
     route::post('handleUpdateCategory/{id}',[CategoryController::class,'handleUpdateCategory'])->name('handleUpdateCategory');
-    route::get('handleDeleteCategory/{id}',[CategoryController::class,'handleDeleteCategory'])->name('handleDeleteCategory');
-    route::get('showTrashCategory',[CategoryController::class,'showTrashCategory'])->name('showTrashCategory');
+    route::get('handleDeleteCategory/{id}',[CategoryController::class,'handleDeleteCategory'])->name('handleDeleteCategory')->middleware('can:category_delete');
+    route::get('showTrashCategory',[CategoryController::class,'showTrashCategory'])->name('showTrashCategory')->middleware('can:category_trash');
     route::get('handleCategoryRestore/{id}',[CategoryController::class,'handleCategoryRestore'])->name('handleCategoryRestore');
     route::get('handleCategoryForce/{id}',[CategoryController::class,'handleCategoryForce'])->name('handleCategoryForce');
 });
@@ -72,7 +72,9 @@ route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(fun
     route::get('showEditRoles/{id}',[RoleController::class,'showEditRoles'])->name('showEditRoles')->middleware('can:role_edit');
     route::post('handleEditRoles/{id}',[RoleController::class,'handleEditRoles'])->name('handleEditRoles');
     route::get('handleDeleteRoles/{id}',[RoleController::class,'handleDeleteRoles'])->name('handleDeleteRoles')->middleware('can:role_delete');
-    
+    route::get('showTrashRole',[RoleController::class,'showTrashRole'])->name('showTrashRole');
+    route::get('handleRoleRestore/{id}',[RoleController::class,'handleRoleRestore'])->name('handleRoleRestore');
+    route::get('handleRoleForce/{id}',[RoleController::class,'handleRoleForce'])->name('handleRoleForce');
 });
 //Permisson
 route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(function(){
