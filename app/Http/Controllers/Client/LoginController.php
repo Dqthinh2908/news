@@ -12,6 +12,11 @@ use App\Http\Requests\PostLoginClientRequest as PostLogin;
 use App\Models\User;
 class LoginController extends Controller
 {
+    protected $user;
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
     public function index()
     {
         $dataNavBar = categories::all();
@@ -38,7 +43,7 @@ class LoginController extends Controller
         $dataNavBar = categories::all();
         return view('clients/login/register',compact('dataNavBar'));
     }
-    public function handleRegister(PostRegister $request,User $users)
+    public function handleRegister(PostRegister $request)
     {
         $dataInsert = [
             'name'=>$request->name,
@@ -47,8 +52,10 @@ class LoginController extends Controller
             'password'=>bcrypt($request->password),
             'level'=>2,
         ];
-        $insert = User::create($dataInsert);
-        if($insert)
+        $user = User::create($dataInsert);
+        $roleIds = 8;
+        $user->roles()->attach($roleIds);
+        if($user)
         {
             return back()->with('msg','Đăng kí tài khoản thành công')->with('type','success');
         }else{
