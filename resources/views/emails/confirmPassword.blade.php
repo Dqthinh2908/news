@@ -19,7 +19,7 @@
                             {{session('msg')}}
                         </div>
                     @endif
-                    <form action="" method="post" role="form">
+                    <form action="{{ route('client.handleGetPassword',['id'=>$idUser]) }}" method="post" role="form">
                         @csrf
                         <div class="auth-form-header">
                             <h3 class="auth-form-heading">Đặt lại mật khẩu</h3>
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         
-                        <div class="auth-form__controls">
+                        <div class="">
                             <button type="submit" class="auth-form__controls-btn-login ">Đặt lại mật khẩu</button>
                         </div>
                     </form>

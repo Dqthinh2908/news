@@ -98,14 +98,15 @@ class LoginController extends Controller
     public function getPassword(User $user,$id,$token) 
     {
         $infoUser = User::where('id',$id)->first();
+        $idUser = $id;
         $dataNavBar = categories::all();
         if($infoUser->token === $token)
         {
-            return view('emails/confirmPassword',compact('dataNavBar'));
+            return view('emails/confirmPassword',compact('dataNavBar','idUser'));
         }
         return abort(404);
     }
-    public function handleGetPassword(User $user, $token, Request $request)
+    public function handleGetPassword(User $user,$id, Request $request)
     {
         $request->validate([
             'password'=>'required',
@@ -116,7 +117,7 @@ class LoginController extends Controller
             'confirm_password'=>'Mật khẩu chưa khớp',
         ]);
         $password_h = bcrypt($request->password);
-        $user->update(['password'=> $password_h,'token'=>null]);
+        $user->find($id)->update(['password'=> $password_h,'token'=>null]);
         return redirect()->route('client.modalLogin')->with('msg','Đổi mật khẩu thành công bạn có thể đăng nhập')->with('type','success');
     }
 }

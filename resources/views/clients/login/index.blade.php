@@ -5,18 +5,19 @@
         <div class="modal__bodys">
             <div class="auth-form">
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-                {{-- thong bao loi ko ton tai tai khoan --}}
                 @if(session('msg'))
-                    <div class="alert alert-danger">{{ session('msg') }}</div>
+                    <div class="alert alert-{{session('type')}}">
+                        {{session('msg')}}
+                    </div>
                 @endif
                 <form action="" method="POST" class="login-form">
                     @csrf

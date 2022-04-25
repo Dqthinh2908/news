@@ -23,7 +23,7 @@ route::prefix('client')->name('client.')->group(function(){
     route::post('handleForgetPassword',[LoginController::class,'handleForgetPassword'])->name('handleForgetPassword');
 
     route::get('getPassword/{id}/{token}',[LoginController::class,'getPassword'])->name('getPassword');
-    route::post('handleGetPassword',[LoginController::class,'handleGetPassword'])->name('handleGetPassword');
+    route::post('handleGetPassword/{id}',[LoginController::class,'handleGetPassword'])->name('handleGetPassword');
 
 
 
