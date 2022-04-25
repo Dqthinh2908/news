@@ -29,4 +29,8 @@ class DashboardController extends Controller
         }
         return redirect()->route('admin.login');
     }
+    public function home()
+    {
+        return view('admin/dashboard/home');
+    }
 }

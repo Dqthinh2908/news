@@ -19,6 +19,7 @@ route::prefix('admin')->name('admin.')->group(function(){
 });
 //Dashboard
 route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(function(){
+    route::get('homeDashboard',[DashboardController::class,'home'])->name('homeDashboard');
     route::get('dashboard',[DashboardController::class,'showDashboard'])->name('dashboard')->middleware('can:post_list');
     route::get('addNews',[NewsController::class,'showAddNews'])->name('showAddNews')->middleware('can:post_add');
     route::post('addNews',[NewsController::class,'handleAddNews'])->name('handleAddNews');
@@ -43,7 +44,7 @@ route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(fun
 });
 //Customer
 route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(function(){
-    route::get('showCustomer',[CustomerController::class,'index'])->name('showCustomer');
+    route::get('showCustomer',[CustomerController::class,'index'])->name('showCustomer')->middleware('can:user_list');
 });
 //Categories
 route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(function(){

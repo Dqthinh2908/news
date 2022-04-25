@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.dashboard')}}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.homeDashboard')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -71,7 +71,7 @@
                 <a class="collapse-item" href="{{route('admin.showAddUser')}}">Thêm tài khoản</a>
                 @endcan
                 @can('user_trash')
-                <a class="collapse-item" href="forgot-password.html">Tài khoản đã xóa</a>
+                <a class="collapse-item" href="{{ route('admin.showTrashUser') }}">Tài khoản đã xóa</a>
                 @endcan
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Tài khoản người dùng:</h6>

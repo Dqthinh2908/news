@@ -1,6 +1,6 @@
 {{--<h1>Session user: {{$user}}</h1>--}}
 @extends('admin.layout-admin')
-@section('title','Dashboard')
+@section('title','Post')
 @section('content')
     <div class="container-fluid">
         <div class="row">

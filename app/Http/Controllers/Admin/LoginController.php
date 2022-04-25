@@ -22,7 +22,7 @@ class LoginController extends Controller
         if (Auth::attempt(['name' => $user, 'password' => $password])) {
             // Authentication was successful...
             $request->session()->put('sessionEmailUser',$user);
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('admin.homeDashboard');
         }
         else{
             return redirect()->back()->with('msg','Thông tin đăng nhập không chính xác, vui lòng đăng nhập lại');
