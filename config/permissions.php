@@ -12,7 +12,8 @@ return [
             'comment',
             'role',
             'test',
-            'user'
+            'user',
+            'home'
         ],
     'module_childrent'=>[
         'list',

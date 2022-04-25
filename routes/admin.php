@@ -19,7 +19,7 @@ route::prefix('admin')->name('admin.')->group(function(){
 });
 //Dashboard
 route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(function(){
-    route::get('homeDashboard',[DashboardController::class,'home'])->name('homeDashboard');
+    route::get('homeDashboard',[DashboardController::class,'home'])->name('homeDashboard')->middleware('can:home_list');
     route::get('dashboard',[DashboardController::class,'showDashboard'])->name('dashboard')->middleware('can:post_list');
     route::get('addNews',[NewsController::class,'showAddNews'])->name('showAddNews')->middleware('can:post_add');
     route::post('addNews',[NewsController::class,'handleAddNews'])->name('handleAddNews');
@@ -38,7 +38,7 @@ route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(fun
     route::get('showEditUser/{id}',[UserController::class,'showEditUser'])->name('showEditUser')->middleware('can:user_edit');
     route::post('handleUpdateUser/{id}',[UserController::class,'handleUpdateUser'])->name('handleUpdateUser');
     route::get('handleDeleteUser/{id}',[UserController::class,'handleDeleteUser'])->name('handleDeleteUser')->middleware('can:user_delete');
-    route::get('showTrashUser',[UserController::class,'showTrashUser'])->name('showTrashUser');
+    route::get('showTrashUser',[UserController::class,'showTrashUser'])->name('showTrashUser')->middleware('can:user_trash');
     route::get('handleUserRestore/{id}',[UserController::class,'handleUserRestore'])->name('handleUserRestore');
     route::get('handleUserForce/{id}',[UserController::class,'handleUserForce'])->name('handleUserForce');
 });
@@ -60,8 +60,8 @@ route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(fun
 });
 //Comment
 route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(function(){
-    route::get('showComment',[CommentController::class,'index'])->name('showComment');
-    route::get('showTrashComment',[CommentController::class,'showCommentTrash'])->name('showCommentTrash');
+    route::get('showComment',[CommentController::class,'index'])->name('showComment')->middleware('can:comment_list');
+    route::get('showTrashComment',[CommentController::class,'showCommentTrash'])->name('showCommentTrash')->middleware('can:comment_trash');
     route::get('commentRestoreDelete/{id}',[CommentController::class,'handleRestoreComment'])->name('handleRestoreComment');
     route::get('commentForceDelete/{id}',[CommentController::class,'handleForceComment'])->name('handleForceComment');
 });
@@ -73,7 +73,7 @@ route::prefix('admin')->name('admin.')->middleware('checkLoginAdmin')->group(fun
     route::get('showEditRoles/{id}',[RoleController::class,'showEditRoles'])->name('showEditRoles')->middleware('can:role_edit');
     route::post('handleEditRoles/{id}',[RoleController::class,'handleEditRoles'])->name('handleEditRoles');
     route::get('handleDeleteRoles/{id}',[RoleController::class,'handleDeleteRoles'])->name('handleDeleteRoles')->middleware('can:role_delete');
-    route::get('showTrashRole',[RoleController::class,'showTrashRole'])->name('showTrashRole');
+    route::get('showTrashRole',[RoleController::class,'showTrashRole'])->name('showTrashRole')->middleware('can:role_trash');
     route::get('handleRoleRestore/{id}',[RoleController::class,'handleRoleRestore'])->name('handleRoleRestore');
     route::get('handleRoleForce/{id}',[RoleController::class,'handleRoleForce'])->name('handleRoleForce');
 });

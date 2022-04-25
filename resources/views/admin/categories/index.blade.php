@@ -41,10 +41,14 @@
                             <td>{{$value->name}}</td>
                             <td>{{$value->deleted_at}}</td>
                             <td>
+                                @can('category_edit')
                                 <a class="btn btn-warning" href="{{ route('admin.showEditCategory',['id'=>$value->id]) }}">Edit</a>
+                                @endcan
                             </td>
                             <td>
+                                @can('category_delete')
                                 <a class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="{{ route('admin.handleDeleteCategory',['id'=>$value->id]) }}">Delete</a>
+                                @endcan
                             </td>
 
                         </tr>

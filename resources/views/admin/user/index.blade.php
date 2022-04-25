@@ -7,8 +7,11 @@
                 <p> This is Users page !</p>
                 @can('user_add')
                 <a class="btn btn-primary" href="{{route('admin.showAddUser')}}"> Thêm tài khoản mới</a>
+                @endcan
+                @can('user_trash')
                 <a href="{{route('admin.showTrashUser')}}" class="btn btn-primary">Thùng rác</a>
                 @endcan
+                
             </div>
         </div>
         <div class="row mt-5">
@@ -42,10 +45,14 @@
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td>
+                                    @can('user_edit')
                                     <a class="btn btn-warning" href="{{ route('admin.showEditUser',['id'=>$value->id]) }}">Edit</a>
+                                    @endcan
                                 </td>
                                 <td>
+                                    @can('user_delete')
                                     <a class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="{{route('admin.handleDeleteUser',['id'=>$value->id])}}">Delete</a>
+                                    @endcan
                                 </td>
                                 <td>{{ $value->fullname }}</td>
                                 <td>{{$value->name}}</td>

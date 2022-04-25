@@ -11,6 +11,8 @@ class PermissionGateAndPolicyAccess{
         $this->defineGateCategory();
         $this->defineGateUser();
         $this->defineGateRole();
+        $this->defineGateComment();
+        $this->defineGateHome();
         
     }
     public function defineGatePost()
@@ -44,5 +46,17 @@ class PermissionGateAndPolicyAccess{
         Gate::define('role_edit', 'App\Policies\RolePolicy@update');
         Gate::define('role_delete','App\Policies\RolePolicy@delete');
         Gate::define('role_trash','App\Policies\RolePolicy@trash');
+    }
+    public function defineGateComment()
+    {
+        Gate::define('comment_list','App\Policies\CommentPolicy@view');
+        Gate::define('comment_add', 'App\Policies\CommentPolicy@create');
+        Gate::define('comment_edit', 'App\Policies\CommentPolicy@update');
+        Gate::define('comment_delete','App\Policies\CommentPolicy@delete');
+        Gate::define('comment_trash','App\Policies\CommentPolicy@trash');
+    }
+    public function defineGateHome()
+    {
+        Gate::define('home_list','App\Policies\HomePolicy@view');
     }
 }

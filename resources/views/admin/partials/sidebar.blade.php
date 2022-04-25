@@ -75,9 +75,15 @@
                 @endcan
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Tài khoản người dùng:</h6>
+                @can('user_list')
                 <a class="collapse-item" href="{{ route('admin.showCustomer') }}">Tài khoản</a>
+                @endcan
+                @can('user_add')
                 <a class="collapse-item" href="{{ route('admin.showAddUser') }}">Thêm tài khoản</a>
+                @endcan
+                @can('user_trash')
                 <a class="collapse-item" href="{{ route('admin.showTrashUser') }}">Tài khoản đã xóa</a>
+                @endcan
             </div>
         </div>
     </li>
@@ -90,8 +96,12 @@
         <div id="collapseComment" class="collapse" aria-labelledby="headingPages" data-parent="#collapseComment">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Danh mục bình luận:</h6>
+                @can('comment_list')
                 <a class="collapse-item" href="{{ route('admin.showComment') }}">Bình luận</a>
+                @endcan
+                @can('comment_trash')
                 <a class="collapse-item" href="{{route('admin.showCommentTrash')}}">Các bình luận đã xóa</a>
+                @endcan
             </div>
         </div>
     </li>
