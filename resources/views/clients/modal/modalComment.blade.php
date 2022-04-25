@@ -26,7 +26,7 @@
                     <div id="comment{{ $value->id }}" style="display:flex" class="comment-area" >            
                         <img src="{{asset('admin/img/undraw_profile_2.svg')}}" width="5%" class="img-profile rounded-circle profileImg-comment" alt="">
                         <div  class="body-comment ml-4">
-                            <h6 class="media-heading">{{ $value->user->name }}</h6>                
+                            <h6 class="media-heading">{{ $value->user->fullname }}</h6>                
                             <p>Nội dung: {{ $value->content_comment }}</p>
                             <p>Thời gian viết:{{ $value->created_at }}</p>
                             @if (Auth::id() == $value->users_id)                    
@@ -47,7 +47,7 @@
                     <div id="comment{{ $value->id }}" style="display:flex" class="comment-area" >            
                         <img src="{{asset('admin/img/undraw_profile_2.svg')}}" width="5%" class="img-profile rounded-circle profileImg-comment" alt="">
                         <div  class="body-comment ml-4">
-                            <h6 class="media-heading">{{ $value->user->name }}</h6>                
+                            <h6 class="media-heading">{{ $value->user->fullname }}</h6>                
                             <p>Nội dung: {{ $value->content_comment }}</p>
                             <p>Thời gian viết:{{ $value->created_at }}</p>
                         </div>    

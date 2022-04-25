@@ -1,5 +1,5 @@
 @extends('clients.layout-home')
-@section('title','Đăng nhập')
+@section('title','Dăng nhập')
 @section('content')
     <div class="container">
         <div class="modal__bodys">
@@ -18,7 +18,7 @@
                 @if(session('msg'))
                     <div class="alert alert-danger">{{ session('msg') }}</div>
                 @endif
-                <form action="{{route('client.handleLogin')}}" method="POST" class="login-form">
+                <form action="" method="POST" class="login-form">
                     @csrf
 
                     <div class="auth-form-header">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="auth-form-aside">
-                        <a href="" class="auth-form-forget active">Quên mật khẩu?</a>
+                        <a href="{{ route('client.showForgetPassword') }}" class="" style="text-decoration: none;color: red;">Quên mật khẩu?</a>
                         <span class="auth-form__help-separate"></span>
                         <a href="" class="auth-form-helper">Cần trợ giúp</a>
                     </div>

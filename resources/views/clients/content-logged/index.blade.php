@@ -8,7 +8,7 @@
                     <div class="header-content">
                         <h5 class="categories-content">{{$dataDetail->name}}</h5>
                         <h3 class="title-content">{{$dataDetail->title}}</h3>
-                        <p>Tác giả viết bài: {{$dataDetail->author}} - {{$dataDetail->created_at}}</p>
+                        <p>Tác giả viết bài: {{$dataDetail->user->fullname}} - {{$dataDetail->created_at}}</p>
                         <hr>
                     </div>
                     <div class="body-content">

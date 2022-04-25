@@ -12,6 +12,13 @@ use Mail;
 class HomeController extends Controller
 {
     protected $db;
+    public function testEmail()
+    {
+        $name = 'test name for email';
+        Mail::send('emails/test',compact('name'),function($email){
+            $email->to('quangthinh13@gmail.com','thinhdq');
+        });
+    }
     public function __construct()
     {
         $this->db = new categories();
@@ -47,7 +54,7 @@ class HomeController extends Controller
     public function getNewsByIdLogged($id)
     {
         $dataNavBar = categories::all();
-        $dataDetail = posts::with('categories')->find($id);
+        $dataDetail = posts::with('categories','user')->find($id);
         $postDetailComment = posts::with('comment', 'comment.user')->where('id', $id)->first();
         // dd($postDetailComment);
         return view('clients.content-logged.index',compact('dataDetail','dataNavBar','postDetailComment'));

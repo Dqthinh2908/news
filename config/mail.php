@@ -93,7 +93,7 @@ return [
 
     'from' => [
         'address' => 'quangthinh13@gmail.com',
-        'name' => 'Demo News',
+        'name' => 'Báo Dân Trí',
     ],
 
     /*

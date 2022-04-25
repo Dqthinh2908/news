@@ -18,6 +18,15 @@ route::prefix('client')->name('client.')->group(function(){
     route::get('register',[LoginController::class,'showModalRegister'])->name('modalRegister');
     route::post('handleRegister',[LoginController::class,'handleRegister'])->name('handleRegister');
     route::get('logout',[LoginController::class,'handleLogout'])->name('handleLogout');
+
+    route::get('showForgetPassword',[LoginController::class,'showForgetPassword'])->name('showForgetPassword');
+    route::post('handleForgetPassword',[LoginController::class,'handleForgetPassword'])->name('handleForgetPassword');
+
+    route::get('getPassword/{id}/{token}',[LoginController::class,'getPassword'])->name('getPassword');
+    route::post('handleGetPassword',[LoginController::class,'handleGetPassword'])->name('handleGetPassword');
+
+
+
 });
 //Logged
 route::prefix('client')->name('client.')->middleware('checkLoginClient')->group(function(){
