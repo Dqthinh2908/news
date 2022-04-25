@@ -1,7 +1,9 @@
 {{--<h1>Session user: {{$user}}</h1>--}}
 @extends('admin.layout-admin')
 @section('title','Post')
+
 @section('content')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-9 col-xl-9 col-lg-9">

@@ -40,8 +40,20 @@
                 @endforeach
             </div>
             @else
-            <button type="submit" class="btn btn-danger" >Vui lòng đăng nhập để xem bình luận</button>
-            <br>
+            <div id="show-comment">
+                <div id="handleShow">
+                </div>
+                @foreach($postDetailComment->comment as $key => $value)
+                    <div id="comment{{ $value->id }}" style="display:flex" class="comment-area" >            
+                        <img src="{{asset('admin/img/undraw_profile_2.svg')}}" width="5%" class="img-profile rounded-circle profileImg-comment" alt="">
+                        <div  class="body-comment ml-4">
+                            <h6 class="media-heading">{{ $value->user->name }}</h6>                
+                            <p>Nội dung: {{ $value->content_comment }}</p>
+                            <p>Thời gian viết:{{ $value->created_at }}</p>
+                        </div>    
+                    </div>
+                @endforeach
+            </div>
             @endif
         </div>
     </div>

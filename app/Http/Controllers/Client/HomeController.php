@@ -31,7 +31,8 @@ class HomeController extends Controller
     {
         $dataNavBar = categories::all();
         $dataDetail = posts::with('categories')->find($id);
-        return view('clients.content.index',compact('dataDetail','dataNavBar'));
+        $postDetailComment = posts::with('comment', 'comment.user')->where('id', $id)->first();
+        return view('clients.content.index',compact('dataDetail','dataNavBar','postDetailComment'));
     }
 
     public function showDashboardLogged()

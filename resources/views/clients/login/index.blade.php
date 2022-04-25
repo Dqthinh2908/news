@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="auth-form-aside">
-                        <a href="" class="auth-form-forget active">Quên mật khẩu</a>
+                        <a href="" class="auth-form-forget active">Quên mật khẩu?</a>
                         <span class="auth-form__help-separate"></span>
                         <a href="" class="auth-form-helper">Cần trợ giúp</a>
                     </div>

@@ -19,6 +19,10 @@ class DashboardController extends Controller
         // die();
         $sessionUser = $request->session()->get('sessionEmailUser');
         $paginator = dataPosts::with('categories','user')->paginate(6);
+        if($key = $request->key){
+            $paginator = dataPosts::with('categories','user')->where('name','like','%'.$key.'%')->paginate(6);
+        }
+        
         // dd($paginator);
         if(auth::check())
         {

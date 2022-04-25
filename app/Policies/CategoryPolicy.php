@@ -62,7 +62,7 @@ class CategoryPolicy
      * @param  \App\Models\categories  $categories
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, categories $categories)
+    public function delete(User $user)
     {
         return $user->checkPermissionAccess('delete_categories');
     }
