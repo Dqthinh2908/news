@@ -12,14 +12,14 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+                @endif
 
                 @if(session('msg'))
                     <div class="alert alert-{{session('type')}}">
                         {{session('msg')}}
                     </div>
                 @endif
-                <form action="" method="POST" class="login-form">
+                <form action="{{ route('client.handleLogin') }}" method="POST" class="login-form">
                     @csrf
 
                     <div class="auth-form-header">

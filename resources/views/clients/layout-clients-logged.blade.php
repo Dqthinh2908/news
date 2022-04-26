@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('clients/css/index.css')}}">
     <link rel="stylesheet" href="{{asset('clients/css/reponsive.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.min.css">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('clients/img/img-35.png') }}"/>
 </head>
 <body>
 <div class="app">
