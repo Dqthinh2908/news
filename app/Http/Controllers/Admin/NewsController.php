@@ -121,7 +121,7 @@ class NewsController extends Controller
                 'user_id'=>Auth::id(),
                 'updated_at'=> Carbon::now(),
             ];
-            $update = $this->data->updatePosts($dataUpdate,$id);
+            $update = $dataNews->update($dataUpdate);
             if($update)
             {
                 return redirect()->route('admin.dashboard')->with('msg','Update dữ liệu thành công')->with('type','success');

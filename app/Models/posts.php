@@ -29,15 +29,5 @@ class posts extends Model
         return $this->belongsTo(User::class,'user_id','id');
     }
 
-
-
-    // admin
-    public function updatePosts($data,$id)
-    {
-        $updateData = DB::table('posts')->where('id',$id)
-            ->update($data)
-        ;
-        return $updateData;
-    }
     
 }
