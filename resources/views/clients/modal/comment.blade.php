@@ -10,14 +10,15 @@
         </div>
     </div>    
 </div>
-@section('js')
+
+
     <script>
         var _csrf = '{{csrf_token()}}';
         $(function() {
             $('.btnHandleDelete').click(function(ev){
                 ev.preventDefault();
                 const id = $(this).attr('data-id');
-                // console.log(id);
+                console.log(id);
                 if(confirm('Bạn có chắc muốn xóa bình luận này?'))
                 {
                     $.ajax({
@@ -30,7 +31,6 @@
                     dataType: "json",
                     success: function (response) {
                         $('#comment'+id).remove();
-
                     }
                 });
                 }    
@@ -38,5 +38,4 @@
         
         });
     </script>
-    
-@endsection
+<script type="text/javascript" src="{{asset('clients/js/jquery-3.6.0.js')}}"></script>  
