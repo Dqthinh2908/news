@@ -11,7 +11,7 @@
     </div>    
 </div>
 
-
+<script type="text/javascript" src="{{asset('clients/js/jquery-3.6.0.js')}}"></script>  
     <script>
         var _csrf = '{{csrf_token()}}';
         $(function() {
@@ -38,4 +38,4 @@
         
         });
     </script>
-<script type="text/javascript" src="{{asset('clients/js/jquery-3.6.0.js')}}"></script>  
+

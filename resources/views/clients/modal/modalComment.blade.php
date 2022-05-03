@@ -14,7 +14,7 @@
                 <button type="submit" class="btn btn-primary mb-4" id="btn-comment">Gửi bình luận</button>
             </form>
             @else
-                <button type="submit" class="btn btn-danger" >Vui lòng đăng nhập để bình luận</button>
+                <a type="submit" href="{{ route('client.modalLogin') }}" class="btn btn-danger" >Vui lòng đăng nhập để bình luận</a>
                 <br>
             @endif
             <h4>Các bình luận về bài viết này</h4>
@@ -97,9 +97,7 @@
 
                     }
                 });
-                }
-                
-                
+                }           
             });
         
         });
