@@ -37,7 +37,7 @@
                     </li>
                     @foreach($dataNavBar as $key => $value)
                     <li class="header__navbar-item">
-                        <a href="" class="header__navbar-link"><span class="navbar-text">{{$value->name}}</span></a>
+                        <a href="{{ $value->id }}" class="header__navbar-link"><span class="navbar-text">{{$value->name}}</span></a>
                     </li>
                     @endforeach
                 </ul>
