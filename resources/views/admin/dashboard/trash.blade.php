@@ -1,5 +1,5 @@
 @extends('admin.layout-admin')
-@section('title','Trash View')
+@section('title','Bài viết đã xóa')
 @section('content')
 <div class="container-fluid">
     <div class="row">

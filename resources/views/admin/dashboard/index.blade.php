@@ -1,6 +1,6 @@
 {{--<h1>Session user: {{$user}}</h1>--}}
 @extends('admin.layout-admin')
-@section('title','Post')
+@section('title','Bài viết')
 
 @section('content')
 

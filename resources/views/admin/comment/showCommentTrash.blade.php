@@ -1,5 +1,5 @@
 @extends('admin.layout-admin')
-@section('title','Comment')
+@section('title','Bình luận đã xóa')
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -26,7 +26,7 @@
                 <tr>
                     <th>#</th>
                     <th>Người bình luận</th> 
-                    <th>Tiêu đề</th>
+                    <th>Tiêu đề bài viết</th>
                     <th>Nội dung bình luận</th>              
                     <th>Thời gian xóa </th>
                     <th colspan="2" width="5%" class="text-center">Action</th>

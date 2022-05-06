@@ -1,5 +1,5 @@
 @extends('admin.layout-admin')
-@section('title','EditRoles')
+@section('title','Chỉnh sửa vai trò')
 @push('stylesheets')
     <style>
         .card-header{

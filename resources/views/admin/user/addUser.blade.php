@@ -1,5 +1,5 @@
 @extends('admin.layout-admin')
-@section('title','AddUser')
+@section('title','Thêm tài khoản')
 @section('css')
 <style>
     .select2-selection__choice__display{

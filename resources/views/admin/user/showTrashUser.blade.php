@@ -1,5 +1,5 @@
 @extends('admin.layout-admin')
-@section('title','Trash User')
+@section('title','Tài khoản đã xóa')
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -24,10 +24,11 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th colspan="2" width="5%" class="text-center">Action</th>
+                        
                         <th>Họ và tên</th>
                         <th>Tên tài khoản</th>
                         <th>Email</th>
+                        <th colspan="2" width="5%" class="text-center">Action</th>
                         <th colspan="3" class="text-center">Chức vụ</th>
                         
                     </tr>
@@ -36,15 +37,16 @@
                         @foreach($dataTrashed as $key => $value)
                             <tr>
                                 <td>{{$key+1}}</td>
+                                
+                                <td>{{$value->fullname }}</td>
+                                <td>{{$value->name}}</td>
+                                <td>{{$value->email}}</td>
                                 <td>
                                     <a class="btn btn-success" href="{{ route('admin.handleUserRestore',['id'=>$value->id]) }}">Khôi phục</a>
                                 </td>
                                 <td>
                                     <a class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="{{route('admin.handleUserForce',['id'=>$value->id])}}">Xóa vĩnh viễn</a>
                                 </td>
-                                <td>{{$value->fullname }}</td>
-                                <td>{{$value->name}}</td>
-                                <td>{{$value->email}}</td>
                                 
                                 @foreach($value->roles as $item)
                                 <td>{{$item->name}}</td>
